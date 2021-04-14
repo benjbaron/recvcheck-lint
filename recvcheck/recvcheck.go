@@ -1,15 +1,14 @@
 package recvcheck
 
 import (
-	"bytes"
 	"go/ast"
-	"go/printer"
-	"go/token"
 	"go/types"
-	"golang.org/x/tools/go/analysis"
 	"strings"
+
+	"golang.org/x/tools/go/analysis"
 )
 
+// Analyzer declares the recvcheck analyzer.
 var Analyzer = &analysis.Analyzer{
 	Name: "recvcheck",
 	Doc:  "reports invalid receiver names",
@@ -57,13 +56,4 @@ func run(pass *analysis.Pass) (interface{}, error) {
 	}
 
 	return nil, nil
-}
-
-// render returns the pretty-print of the given node
-func render(fset *token.FileSet, x interface{}) string {
-	var buf bytes.Buffer
-	if err := printer.Fprint(&buf, fset, x); err != nil {
-		panic(err)
-	}
-	return buf.String()
 }

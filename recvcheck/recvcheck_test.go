@@ -3,7 +3,7 @@ package recvcheck_test
 import (
 	"testing"
 
-	"github.com/algolia/go/playground/lint/recvcheck"
+	"github.com/benjbaron/recvcheck-lint/recvcheck"
 	"golang.org/x/tools/go/analysis/analysistest"
 )
 
